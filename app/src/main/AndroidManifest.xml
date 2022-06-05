@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.proyectoapp">
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Proyectoapp"
+        tools:targetApi="31">
+        <activity
+            android:name=".perfilar_usuario"
+            android:exported="false" />
+        <activity
+            android:name=".perfilar_listausuarios"
+            android:exported="false" />
+        <activity
+            android:name=".digitalizacion_resultado"
+            android:exported="false" />
+        <activity
+            android:name=".reporte_digitalizacion"
+            android:exported="false" />
+        <activity
+            android:name=".digitalizar_pedido"
+            android:exported="false" />
+        <activity
+            android:name=".nuevo_contrato"
+            android:exported="false" />
+        <activity
+            android:name=".asignacion_de_turnos"
+            android:exported="false" />
+        <activity
+            android:name=".notificar_hhee"
+            android:exported="false" />
+        <activity
+            android:name=".cuenta"
+            android:exported="false" />
+        <activity
+            android:name=".login"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
