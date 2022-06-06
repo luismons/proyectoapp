@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">proyectoapp</string>
+    <string name="ingresar">ingresar</string>
+    <string name="activity_1">activity 1</string>
+    <string name="regresar">regresar</string>
+    <string name="activity_2">activity 2</string>
+    <string name="regresar">regresar</string>
+    <string name="activity_2">activity 2</string>
+    <string name="regresar">regresar</string>
+    <string name="activity_2">activity 2</string>
 </resources>

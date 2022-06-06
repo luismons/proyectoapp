@@ -3,17 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Luis/AndroidStudioProjects/proyectoapp/app/src/main/res/layout/activity_asignacion_de_turnos.xml" value="0.3175182481751825" />
+        <entry key="..\:/Users/Luis/AndroidStudioProjects/proyectoapp/app/src/main/res/layout/activity_asignacion_de_turnos.xml" value="0.25" />
         <entry key="..\:/Users/Luis/AndroidStudioProjects/proyectoapp/app/src/main/res/layout/activity_cuenta.xml" value="0.25" />
         <entry key="..\:/Users/Luis/AndroidStudioProjects/proyectoapp/app/src/main/res/layout/activity_detalle_pedido.xml" value="0.1956521739130435" />
         <entry key="..\:/Users/Luis/AndroidStudioProjects/proyectoapp/app/src/main/res/layout/activity_digitalizacion_resultado.xml" value="0.1956521739130435" />
-        <entry key="..\:/Users/Luis/AndroidStudioProjects/proyectoapp/app/src/main/res/layout/activity_digitalizar_pedido.xml" value="0.12447916666666667" />
+        <entry key="..\:/Users/Luis/AndroidStudioProjects/proyectoapp/app/src/main/res/layout/activity_digitalizar_pedido.xml" value="0.22" />
         <entry key="..\:/Users/Luis/AndroidStudioProjects/proyectoapp/app/src/main/res/layout/activity_login.xml" value="0.25" />
-        <entry key="..\:/Users/Luis/AndroidStudioProjects/proyectoapp/app/src/main/res/layout/activity_main.xml" value="0.1956521739130435" />
-        <entry key="..\:/Users/Luis/AndroidStudioProjects/proyectoapp/app/src/main/res/layout/activity_notificar_hhee.xml" value="0.1956521739130435" />
-        <entry key="..\:/Users/Luis/AndroidStudioProjects/proyectoapp/app/src/main/res/layout/activity_nuevo_contrato.xml" value="0.25" />
-        <entry key="..\:/Users/Luis/AndroidStudioProjects/proyectoapp/app/src/main/res/layout/activity_perfilar_listausuarios.xml" value="0.1956521739130435" />
-        <entry key="..\:/Users/Luis/AndroidStudioProjects/proyectoapp/app/src/main/res/layout/activity_perfilar_usuario.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/Luis/AndroidStudioProjects/proyectoapp/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/Luis/AndroidStudioProjects/proyectoapp/app/src/main/res/layout/activity_notificar_hhee.xml" value="0.33" />
+        <entry key="..\:/Users/Luis/AndroidStudioProjects/proyectoapp/app/src/main/res/layout/activity_nuevo_contrato.xml" value="0.33" />
+        <entry key="..\:/Users/Luis/AndroidStudioProjects/proyectoapp/app/src/main/res/layout/activity_perfilar_listausuarios.xml" value="0.25" />
+        <entry key="..\:/Users/Luis/AndroidStudioProjects/proyectoapp/app/src/main/res/layout/activity_perfilar_usuario.xml" value="0.25" />
         <entry key="..\:/Users/Luis/AndroidStudioProjects/proyectoapp/app/src/main/res/layout/activity_reporte_digitalizacion.xml" value="0.1956521739130435" />
       </map>
     </option>
