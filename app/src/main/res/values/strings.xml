@@ -4,5 +4,17 @@
     <string name="activity_1">activity 1</string>
     <string name="regresar">regresar</string>
     <string name="activity_2">activity 2</string>
+    <string name="home">Home</string>
+    <string name="notificar_hhee">Notificar HHEE</string>
+    <string name="perfilar_usuario">Perfilar Usuario</string>
+    <string name="asignar_turnos">Asignar Turnos</string>
+    <string name="agregar_contrato">Agregar Contrato</string>
+    <string name="registro_de_conexiones">Registro de conexiones</string>
+    <string name="reporte_digitaci_n">Reporte Digitación</string>
+    <string name="pedidos">Pedidos</string>
+    <string name="digitalizar_pedidos">Digitalizar Pedidos</string>
+    <string name="ingresar_boleta">Ingresar Boleta</string>
+    <string name="reporte_digitalizaci_n">Reporte Digitalización</string>
+    <string name="exportar_pedido">Exportar Pedido</string>
 
 </resources>
