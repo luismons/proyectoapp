@@ -6,53 +6,36 @@
     android:layout_height="match_parent"
     tools:context=".perfilar_listausuarios">
 
-    <Button
-        android:id="@+id/button36"
-        android:layout_width="106dp"
-        android:layout_height="87dp"
-        android:layout_marginStart="308dp"
-        android:layout_marginLeft="308dp"
-        android:text="registro de conexiones"
-        android:textSize="10sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <TextView
+        android:id="@+id/textView48"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Perfilar usuarios"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.992" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/button37"
-        android:layout_width="96dp"
-        android:layout_height="87dp"
-        android:text="Cuenta"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="372dp"
+        android:layout_height="495dp"
+        android:layout_marginTop="100dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.992" />
+        app:layout_constraintTop_toBottomOf="@+id/textView48" />
 
-    <Button
-        android:id="@+id/button38"
-        android:layout_width="109dp"
-        android:layout_height="87dp"
-        android:layout_marginStart="200dp"
-        android:layout_marginLeft="200dp"
-        android:text="notificar HHEE"
-        android:textSize="11sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.992" />
-
-    <Button
-        android:id="@+id/button39"
-        android:layout_width="103dp"
-        android:layout_height="87dp"
-        android:layout_marginStart="96dp"
-        android:layout_marginLeft="96dp"
-        android:text="perfilar"
-        android:textSize="13sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.992" />
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/bottomAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@color/white"
+        app:fabCradleMargin="10dp"
+        app:fabCradleRoundedCornerRadius="50dp"
+        app:menu="@menu/bottom_menu"
+        tools:ignore="BottomAppBar,MissingConstraints"
+        tools:layout_editor_absoluteX="-64dp"
+        tools:layout_editor_absoluteY="659dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

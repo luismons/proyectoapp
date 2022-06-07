@@ -18,9 +18,9 @@ public class MainActivity extends AppCompatActivity{
         setContentView(R.layout.activity_main);
 
     }
-    public void ingresar(View view){
-        Intent ingresar = new Intent(this,nuevo_contrato.class);
-        startActivity(ingresar);
+    public void home(View view){
+        Intent home = new Intent(this,cuenta.class);
+        startActivity(home);
     }
 
 

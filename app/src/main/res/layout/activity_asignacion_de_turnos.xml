@@ -72,56 +72,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView23" />
 
-    <Button
-        android:id="@+id/button16"
-        android:layout_width="106dp"
-        android:layout_height="87dp"
-        android:layout_marginStart="308dp"
-        android:layout_marginLeft="308dp"
-        android:textSize="10sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.995"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-    <Button
-        android:id="@+id/button17"
-        android:layout_width="103dp"
-        android:layout_height="87dp"
-        android:layout_marginStart="96dp"
-        android:layout_marginLeft="96dp"
-        android:text="ingresar boleta"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.995" />
-
-    <Button
-        android:id="@+id/button18"
-        android:layout_width="109dp"
-        android:layout_height="87dp"
-        android:layout_marginStart="200dp"
-        android:layout_marginLeft="200dp"
-        android:text="reporte"
-        android:textSize="11sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.995" />
-
-    <Button
-        android:id="@+id/button19"
-        android:layout_width="96dp"
-        android:layout_height="87dp"
-        android:text="iniciar nuevo contrato"
-        android:textSize="10sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.995" />
-
     <TextView
         android:id="@+id/textView17"
         android:layout_width="wrap_content"
@@ -231,5 +181,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView31" />
+
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/bottomAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@color/white"
+        app:fabCradleMargin="10dp"
+        app:fabCradleRoundedCornerRadius="50dp"
+        app:menu="@menu/bottom_menu"
+        tools:ignore="BottomAppBar,MissingConstraints"
+        tools:layout_editor_absoluteX="-64dp"
+        tools:layout_editor_absoluteY="659dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

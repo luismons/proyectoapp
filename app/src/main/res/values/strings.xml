@@ -1,11 +1,7 @@
 <resources>
     <string name="app_name">proyectoapp</string>
-    <string name="ingresar">ingresar</string>
-    <string name="activity_1">activity 1</string>
-    <string name="regresar">regresar</string>
-    <string name="activity_2">activity 2</string>
-    <string name="home">Home</string>
-    <string name="notificar_hhee">Notificar HHEE</string>
+    <string name="home">Cuenta</string>
+    <string name="notificar_HHEE">Notificar Horas Extras</string>
     <string name="perfilar_usuario">Perfilar Usuario</string>
     <string name="asignar_turnos">Asignar Turnos</string>
     <string name="agregar_contrato">Agregar Contrato</string>

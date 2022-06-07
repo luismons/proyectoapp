@@ -8,7 +8,7 @@
         android:icon="@drawable/ic_baseline_home_24"/>
     <item
         android:id="@+id/notificar"
-        android:title="@string/notificar_hhee"
+        android:title="@string/notificar_HHEE"
         app:showAsAction="ifRoom"
         android:icon="@drawable/ic_baseline_alarm_add_24_4"/>
     <item
