@@ -16,6 +16,8 @@
         android:background="@color/white"
         app:fabCradleRoundedCornerRadius="50dp"
         app:fabCradleMargin="10dp"
+        app:fabAnimationMode="slide"
+        app:hideOnScroll="true"
         app:menu="@menu/bottom_menu"
     />
 

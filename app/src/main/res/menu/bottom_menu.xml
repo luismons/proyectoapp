@@ -3,14 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/home"
+        android:icon="@drawable/ic_baseline_home_24"
         android:title="@string/home"
-        app:showAsAction="always"
-        android:icon="@drawable/ic_baseline_home_24"/>
+        app:showAsAction="always" />
     <item
         android:id="@+id/notificar"
+        android:icon="@drawable/ic_baseline_alarm_add_24_4"
         android:title="@string/notificar_HHEE"
-        app:showAsAction="ifRoom"
-        android:icon="@drawable/ic_baseline_alarm_add_24_4"/>
+        app:showAsAction="ifRoom" />
     <item
         android:id="@+id/perfilar"
         android:title="@string/perfilar_usuario"
@@ -49,12 +49,12 @@
     <item
         android:id="@+id/ingresarBoleta"
         android:title="@string/ingresar_boleta"
-        app:showAsAction="always"
+        app:showAsAction="ifRoom"
         android:icon="@drawable/ic_baseline_post_add_24_8"/>
     <item
         android:id="@+id/reporteDigitalizacion"
         android:title="@string/reporte_digitalizaci_n"
-        app:showAsAction="always"
+        app:showAsAction="ifRoom"
         android:icon="@drawable/ic_assignment_9"/>
     <item
         android:id="@+id/exportar"
