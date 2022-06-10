@@ -24,17 +24,15 @@ public class MainActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //
+        // Configuración bottomAppBar
+        //
         bottomAppBar = findViewById(R.id.bottomAppBar);
         setSupportActionBar(bottomAppBar);
-        /*bottomAppBar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                switch (view.getId()){
-                    case R.id.home:
-                        home();
-                }
-            }
-        });*/
+        configurarBottomAppBar(bottomAppBar);
+
+    }
+    public void configurarBottomAppBar(BottomAppBar bottomAppBar){
         bottomAppBar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
@@ -77,13 +75,11 @@ public class MainActivity extends AppCompatActivity{
                         exportar();
                         return true;
                     default:
-                    return false;
+                        return false;
                 }
 
             }
         });
-
-
     }
     public void home(){
         Intent home = new Intent(this,cuenta.class);
