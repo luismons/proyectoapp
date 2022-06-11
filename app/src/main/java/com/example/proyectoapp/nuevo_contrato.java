@@ -2,6 +2,7 @@ package com.example.proyectoapp;
 
 import static java.lang.Boolean.TRUE;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -10,10 +11,30 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.material.bottomappbar.BottomAppBar;
 
+import java.io.StringReader;
+import java.util.HashMap;
+import java.util.Map;
+
 public class nuevo_contrato extends AppCompatActivity {
+
+    public EditText contrato,cliente,fechainicio,fechatermino,fechaCaducidad,tiempocaducidad,correo;
+    public Button btncontrato;
+
+    RequestQueue requestQueue;
+    private static final String urlservidor="http://192.168.43.131/basedatos/nuevo_contrato.php";
 
     private BottomAppBar bottomAppBar;
 
@@ -22,6 +43,16 @@ public class nuevo_contrato extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nuevo_contrato);
 
+        requestQueue= Volley.newRequestQueue(this);
+
+        contrato=(EditText) findViewById(R.id.ncContrato);
+        cliente=(EditText)findViewById(R.id.ncCliente);
+        fechainicio=(EditText) findViewById(R.id.ncFechaInicio);
+        fechatermino=(EditText) findViewById(R.id.ncFechaTermino);
+        fechaCaducidad=(EditText) findViewById(R.id.ncCaducidad);
+        tiempocaducidad=(EditText) findViewById(R.id.ncCaducidadImagenes);
+        correo=(EditText) findViewById(R.id.ncCorreo);
+
         //
         // Configuración bottomAppBar
         //
@@ -29,9 +60,39 @@ public class nuevo_contrato extends AppCompatActivity {
         setSupportActionBar(bottomAppBar);
         configurarBottomAppBar(bottomAppBar);
     }
-    public void regresar(View view){
-        Intent regresar = new Intent(this,MainActivity.class);
-        startActivity(regresar);
+
+    public void guardarContrato(View view){
+
+        StringRequest stringRequest=new StringRequest(
+                Request.Method.POST, urlservidor, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Toast.makeText(nuevo_contrato.this, "Contrato Ingresado", Toast.LENGTH_SHORT).show();
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        }
+        ){
+
+            @Nullable
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<>();
+                params.put("contrato",contrato.getText().toString());
+                params.put("cliente",cliente.getText().toString());
+                params.put("fecha_inicio",fechainicio.getText().toString());
+                params.put("fecha_termino",fechatermino.getText().toString());
+                params.put("tiempo_caducidadimg",tiempocaducidad.getText().toString());
+                params.put("correo",correo.getText().toString());
+
+                return params;
+            }
+        };
+        requestQueue.add(stringRequest);
 
     }
     public void configurarBottomAppBar(BottomAppBar bottomAppBar){

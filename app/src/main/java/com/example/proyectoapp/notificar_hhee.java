@@ -9,10 +9,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.EditText;
 
 import com.google.android.material.bottomappbar.BottomAppBar;
 
 public class notificar_hhee extends AppCompatActivity {
+
+    EditText hTrabajador,hInicio,hFin;
+    Button btntrabajador;
 
     private BottomAppBar bottomAppBar;
 
@@ -20,6 +25,10 @@ public class notificar_hhee extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notificar_hhee);
+
+        hTrabajador=(EditText) findViewById(R.id.heTrabajador);
+        hInicio=(EditText) findViewById(R.id.heComienzo);
+        hFin=(EditText) findViewById(R.id.heFin);
 
         //
         // Configuración bottomAppBar
