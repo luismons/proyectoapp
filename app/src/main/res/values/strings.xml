@@ -33,5 +33,14 @@
     <string name="imagen_boleta">Imagen boleta</string>
     <string name="elemento_a_digitar">Elemento a digitar</string>
     <string name="siguiente">SIGUIENTE</string>
+    <string name="filtros_titulo">Filtros</string>
+    <string name="registro_de_conexiones_titulo">Registro de Conexiones</string>
+    <string name="reporte_digitacion_titulo">Reporte Mensual Digitación</string>
+    <string name="cliente_titulo">Cliente</string>
+    <string name="indicador_caducidad_titulo">Indicador Caducidad</string>
+    <string name="estado_titulo">Estado</string>
+    <string name="hint_cliente">111111111</string>
+    <string name="ipServidor">192.168.56.1</string>
+
 
 </resources>
