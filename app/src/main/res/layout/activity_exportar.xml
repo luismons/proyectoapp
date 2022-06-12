@@ -116,7 +116,7 @@
             </ScrollView>
 
             <ScrollView
-                android:id="@+id/scrollTbExportar"
+                android:id="@+id/filtros"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
