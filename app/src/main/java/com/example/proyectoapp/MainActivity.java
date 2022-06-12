@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity{
         });
     }
     public void home(){
-        Intent home = new Intent(this,cuenta.class);
+        Intent home = new Intent(this,justaspinner.class);
         startActivity(home);
     }
     public void notificar(){

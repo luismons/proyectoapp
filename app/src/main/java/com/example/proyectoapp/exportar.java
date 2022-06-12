@@ -11,7 +11,11 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Adapter;
+import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
+import android.widget.Spinner;
+import android.widget.SpinnerAdapter;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -22,6 +26,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.bottomappbar.BottomAppBar;
 
@@ -29,10 +34,16 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
 public class exportar extends AppCompatActivity {
     String url = "http://192.168.56.1/ProyectoTitulo/php/registrosPedidosExportar.php";
+    String urlMeses = "http://192.168.56.1/ProyectoTitulo/php/registrosPedidosObtenerMeses.php";
     private BottomAppBar bottomAppBar;
     private TableLayout tbExportar;
+    private Spinner spinnerMes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +56,44 @@ public class exportar extends AppCompatActivity {
         setSupportActionBar(bottomAppBar);
         configurarBottomAppBar(bottomAppBar);
 
+        //
+        // Configuración Spinner
+        //
+        spinnerMes = findViewById(R.id.seleccionarMesSpinner);
 
+        ArrayList<String> meses = new ArrayList<>();
+        meses.add("Seleccionar mes...");
+
+        spinnerMes.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, meses));
+        //json Spinner
+        RequestQueue queue2 = Volley.newRequestQueue(this);
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, urlMeses, null,
+                new Response.Listener<JSONObject>(){
+                    JSONArray array = new JSONArray();
+                    public void onResponse(JSONObject response){
+                        try {
+                            array = response.getJSONArray("data");
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                        for (int i = 0; i < array.length(); i++) {
+                            JSONObject object = null;
+                            try {
+                                object = array.getJSONObject(i);
+                                meses.add(object.getString("mes"));
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                                           }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+        queue2.add(jsonObjectRequest);
     }
 
     //
@@ -56,14 +104,21 @@ public class exportar extends AppCompatActivity {
         tbExportar.removeAllViews();
         RequestQueue queue = Volley.newRequestQueue(this);
 
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null,
-                new Response.Listener<JSONObject>(){
+        StringRequest postRequest = new StringRequest(Request.Method.POST, url,
+                new Response.Listener<String>(){
                     JSONArray array = new JSONArray();
-                    public void onResponse(JSONObject response){
+
+                    public void onResponse(String response){
                         try {
-                            array = response.getJSONArray("data");
+                            JSONObject jsonObject = new JSONObject(response);
+                            array = jsonObject.getJSONArray("data");
                         } catch (JSONException e) {
                             e.printStackTrace();
+                        }
+                        if (array.length() == 0){
+                            TableRow registro = (TableRow) LayoutInflater.from(exportar.this).inflate(R.layout.table_row_sin_registros, null, false);
+                            tbExportar.addView(registro);
+
                         }
                         for (int i = 0; i < array.length(); i++) {
                             try {
@@ -77,7 +132,7 @@ public class exportar extends AppCompatActivity {
                                 ImageButton colDetalle = registro.findViewById(R.id.btnDetalleExportar);
                                 ImageButton colExportar = registro.findViewById(R.id.btnExportarExportar);
                                 colCliente.setText(object.getString("nombreCliente"));
-                                colMes.setText(object.getString("mesprocesamiento"));
+                                colMes.setText(object.getString("mes"));
                                 colCaducidad.setText(object.getString("idTextoPlano"));
                                 colEstado.setText(object.getString("estado"));
                                 colExportar.setId(Integer.parseInt(object.getString("idPedido")));
@@ -89,14 +144,35 @@ public class exportar extends AppCompatActivity {
                                 e.printStackTrace();
                             }
                         }
+
                     }
                 }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
 
                     }
-                });
-            queue.add(jsonObjectRequest);
+
+                }
+                )
+        {
+            @Override
+            protected Map<String, String> getParams()
+            {
+                TextView numeroContrato = findViewById(R.id.numContratoTxtExportar);
+                Spinner spinnerMes = findViewById(R.id.seleccionarMesSpinner);
+
+
+                Map<String, String>  params = new HashMap<String, String>();
+                params.put("mes", (String) spinnerMes.getSelectedItem());
+                params.put("numeroContrato", numeroContrato.getText().toString());
+
+
+
+                return params;
+            }
+        };
+
+            queue.add(postRequest);
     }
     //
     // Botones en tabla

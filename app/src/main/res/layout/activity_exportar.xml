@@ -50,9 +50,8 @@
 
                         <TextView
                             android:id="@+id/mesExportar"
-                            android:layout_width="204dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="48dp"
-                            android:layout_marginTop="16dp"
                             android:gravity="center_vertical|end"
                             android:text="@string/mes"
                             android:textSize="20sp"
@@ -63,9 +62,8 @@
 
                         <TextView
                             android:id="@+id/numContratoExportar"
-                            android:layout_width="205dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="48dp"
-                            android:layout_marginTop="4dp"
                             android:gravity="center_vertical|end"
                             android:text="@string/numero_contrato_texto"
                             android:textIsSelectable="false"
@@ -84,7 +82,6 @@
                             android:id="@+id/seleccionarMesSpinner"
                             android:layout_width="208dp"
                             android:layout_height="48dp"
-                            android:layout_marginTop="16dp"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toBottomOf="parent" />
 
@@ -92,15 +89,14 @@
                             android:id="@+id/numContratoTxtExportar"
                             android:layout_width="207dp"
                             android:layout_height="48dp"
+                            android:autofillHints="creditCardExpirationMonth"
                             android:ems="10"
                             android:hint="@string/hintNumeroContrato"
                             android:inputType="time"
                             android:textColorHint="#757575"
-                            android:autofillHints="creditCardExpirationMonth"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintStart_toEndOf="@+id/numContratoExportar"
-                            app:layout_constraintTop_toBottomOf="@+id/seleccionarMesSpinner"
-                            app:layout_constraintVertical_bias="0.059" />
+                            app:layout_constraintTop_toBottomOf="@+id/seleccionarMesSpinner" />
 
                         <Button
                             android:id="@+id/generarBtn"
