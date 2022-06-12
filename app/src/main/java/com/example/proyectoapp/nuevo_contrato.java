@@ -34,7 +34,7 @@ public class nuevo_contrato extends AppCompatActivity {
     public Button btncontrato;
 
     RequestQueue requestQueue;
-    private static final String urlservidor="http://192.168.43.131/basedatos/nuevo_contrato.php";
+    private static final String urlservidor="http://192.168.0.101/basedatos/nuevo_contrato.php";
 
     private BottomAppBar bottomAppBar;
 
