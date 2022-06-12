@@ -7,27 +7,112 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageButton;
+import android.widget.TableLayout;
+import android.widget.TableRow;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.material.bottomappbar.BottomAppBar;
 
-public class registro_conexiones extends AppCompatActivity {
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
+public class registro_conexiones extends AppCompatActivity {
+    String url = "http://192.168.56.1/ProyectoTitulo/php/registrosConexiones.php";
     private BottomAppBar bottomAppBar;
+    private TableLayout tbConexiones;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro_conexiones);
-
         //
         // Configuración bottomAppBar
         //
         bottomAppBar = findViewById(R.id.bottomAppBar);
         setSupportActionBar(bottomAppBar);
         configurarBottomAppBar(bottomAppBar);
+
+        //
+        // Llenar tabla
+        //
+        tbConexiones = findViewById(R.id.tbConexiones);
+        RequestQueue queue2 = Volley.newRequestQueue(this);
+
+
+
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null,
+                new Response.Listener<JSONObject>(){
+                    JSONArray array = new JSONArray();
+                    public void onResponse(JSONObject response){
+                        try {
+                            array = response.getJSONArray("data");
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                        for (int i = 0; i < array.length(); i++) {
+                            try {
+
+                                JSONObject object = array.getJSONObject(i);
+
+
+                                TableRow registro = (TableRow) LayoutInflater.from(registro_conexiones.this).inflate(R.layout.table_row_conexiones, null, false);
+                                TextView colNombre = registro.findViewById(R.id.txtNombre);
+                                TextView colHora = registro.findViewById(R.id.txtHoraConexion);
+                                TextView colEstado = registro.findViewById(R.id.txtEstado);
+                                ImageButton colDetalle = registro.findViewById(R.id.btnDetalle);
+                                ImageButton colBloquear = registro.findViewById(R.id.btnBloquear);
+
+                                colNombre.setText(object.getString("nombreUsuario"));
+                                colHora.setText(object.getString("horaInicioSesion"));
+                                colEstado.setText(object.getString("accionTomada"));
+                                colBloquear.setId(Integer.parseInt(object.getString("idSesion")));
+                                colDetalle.setId(Integer.parseInt(object.getString("idSesion")));
+                                tbConexiones.addView(registro);
+
+
+
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+        queue2.add(jsonObjectRequest);
+
     }
+
+
+    //
+    // Botones en tabla
+    //
+    public void clickDetalle(View view){
+        String viewidst = String.valueOf(view.getId());
+        Toast.makeText(this,String.valueOf(view.getId()), Toast.LENGTH_LONG).show();
+    }
+    public void clickBloquear(View view){
+        String viewidst = String.valueOf(view.getId());
+        Toast.makeText(this,String.valueOf(view.getId()), Toast.LENGTH_LONG).show();
+    }
+
     public void configurarBottomAppBar(BottomAppBar bottomAppBar){
         bottomAppBar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
@@ -125,7 +210,6 @@ public class registro_conexiones extends AppCompatActivity {
         Intent digitarPedido = new Intent(this,exportar.class);
         startActivity(digitarPedido);
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);

@@ -5,10 +5,138 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".reporte_digitacion">
-
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_margin="@dimen/fab_margin">
+        <TextView
+            android:id="@+id/tituloReporteDigitacionPedido"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:gravity="center"
+            android:text="@string/reporte_digitacion_titulo"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ScrollView
+            android:id="@+id/filtros"
+            android:layout_width="match_parent"
+            android:layout_height="600dp"
+            android:contentDescription="@string/filtros_titulo"
+            app:layout_constraintTop_toBottomOf="@id/tituloReporteDigitacionPedido">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/mesExportartit"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:gravity="center_vertical|end"
+                        android:text="@string/mes"
+                        android:textSize="20sp"
+                        app:layout_constraintEnd_toStartOf="@+id/seleccionarMesSpinner"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <TextView
+                        android:id="@+id/idclientetit"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:gravity="center_vertical|end"
+                        android:text="@string/cliente_titulo"
+                        android:textIsSelectable="false"
+                        android:textSize="20sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/mesExportartit" />
+
+                    <TextView
+                        android:id="@+id/indicaducidadtit"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:gravity="center_vertical|end"
+                        android:text="@string/indicador_caducidad_titulo"
+                        android:textIsSelectable="false"
+                        android:textSize="20sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/idclientetit" />
+
+                    <TextView
+                        android:id="@+id/estadotit"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:gravity="center_vertical|end"
+                        android:text="@string/estado_titulo"
+                        android:textIsSelectable="false"
+                        android:textSize="20sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/idclientetit" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <Spinner
+                        android:id="@+id/seleccionarMesSpinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tituloDigitarPedido" />
+
+                    <EditText
+                        android:id="@+id/numClienteTxt"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:ems="10"
+                        android:hint="@string/hint_cliente"
+                        android:inputType="time"
+                        android:textColorHint="#757575"
+                        app:layout_constraintStart_toEndOf="@+id/numContratoExportar"
+                        app:layout_constraintTop_toBottomOf="@+id/seleccionarMesSpinner"
+                         />
+
+                    <Spinner
+                        android:id="@+id/indicadorCaducidadSpinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/numClienteTxt" />
+
+                    <Spinner
+                        android:id="@+id/estadoSpinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/indicadorCaducidadSpinner" />
+
+                    <Button
+                        android:id="@+id/generarBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:text="@string/generar"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/estadoSpinner" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -18,10 +146,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:background="@color/white"
+        app:fabAnimationMode="slide"
         app:fabCradleMargin="10dp"
         app:fabCradleRoundedCornerRadius="50dp"
-        app:menu="@menu/bottom_menu"
-        tools:ignore="BottomAppBar,MissingConstraints"
-        tools:layout_editor_absoluteX="-64dp"
-        tools:layout_editor_absoluteY="659dp" />
+        app:hideOnScroll="true"
+        app:menu="@menu/bottom_menu" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

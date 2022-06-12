@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,9 +9,71 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/fab_margin">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="533dp"
+            android:contentDescription="@string/imagen_boleta"
+            app:layout_constraintTop_toBottomOf="@+id/tituloDigitarPedido">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.ortiz.touchview.TouchImageView
+                    android:id="@+id/imagenBoleta"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/boletatest" />
+            </LinearLayout>
+        </ScrollView>
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="64dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@string/siguiente"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginRight="@dimen/fab_margin"/>
+
+        <EditText
+            android:id="@+id/contenidoCampo"
+            android:layout_width="252dp"
+            android:layout_height="46dp"
+            android:layout_marginBottom="64dp"
+            android:autofillHints=""
+            android:backgroundTint="@color/white"
+            android:ems="10"
+            android:gravity="bottom"
+            android:hint="@string/elemento_a_digitar"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:textColorHint="#757575"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tituloDigitarPedido"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:gravity="center"
+            android:text="@string/ingresar_boleta"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bottomAppBar"
@@ -18,10 +81,11 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:background="@color/white"
+        app:fabAnimationMode="slide"
         app:fabCradleMargin="10dp"
         app:fabCradleRoundedCornerRadius="50dp"
-        app:menu="@menu/bottom_menu"
-        tools:ignore="BottomAppBar,MissingConstraints"
-        tools:layout_editor_absoluteX="-64dp"
-        tools:layout_editor_absoluteY="659dp" />
+        app:hideOnScroll="true"
+        app:menu="@menu/bottom_menu" />
+
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

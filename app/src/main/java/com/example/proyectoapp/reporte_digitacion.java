@@ -15,12 +15,10 @@ import com.google.android.material.bottomappbar.BottomAppBar;
 public class reporte_digitacion extends AppCompatActivity {
 
     private BottomAppBar bottomAppBar;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reporte_digitacion);
-
         //
         // Configuración bottomAppBar
         //
@@ -28,6 +26,7 @@ public class reporte_digitacion extends AppCompatActivity {
         setSupportActionBar(bottomAppBar);
         configurarBottomAppBar(bottomAppBar);
     }
+
     public void configurarBottomAppBar(BottomAppBar bottomAppBar){
         bottomAppBar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
@@ -125,7 +124,6 @@ public class reporte_digitacion extends AppCompatActivity {
         Intent digitarPedido = new Intent(this,exportar.class);
         startActivity(digitarPedido);
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);

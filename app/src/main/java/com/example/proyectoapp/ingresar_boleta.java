@@ -9,26 +9,35 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 
 import com.google.android.material.bottomappbar.BottomAppBar;
 
 public class ingresar_boleta extends AppCompatActivity {
 
-
     private BottomAppBar bottomAppBar;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ingresar_boleta);
-
         //
         // Configuración bottomAppBar
         //
         bottomAppBar = findViewById(R.id.bottomAppBar);
         setSupportActionBar(bottomAppBar);
         configurarBottomAppBar(bottomAppBar);
+        //
+        // Configuración imágen boleta
+        //
+        //actualizarImagenBoleta(); se debe poner la imagen obtenida de la carpeta de api
     }
+    public void actualizarImagenBoleta(int imagen){
+        //int imgBoleta = datos.getInt("imagen");
+        com.ortiz.touchview.TouchImageView viewPhoto = (com.ortiz.touchview.TouchImageView) findViewById(R.id.imagenBoleta);
+        viewPhoto.setImageResource(imagen);
+    }
+
+
     public void configurarBottomAppBar(BottomAppBar bottomAppBar){
         bottomAppBar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
@@ -126,7 +135,6 @@ public class ingresar_boleta extends AppCompatActivity {
         Intent digitarPedido = new Intent(this,exportar.class);
         startActivity(digitarPedido);
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
