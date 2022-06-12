@@ -7,12 +7,32 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageButton;
+import android.widget.TableLayout;
+import android.widget.TableRow;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.material.bottomappbar.BottomAppBar;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class digitalizar_pedido extends AppCompatActivity {
+
+    String url="192.168.0.101/basedatos/digitalizar.php";
+    private TableLayout tbdigitalizar;
 
     private BottomAppBar bottomAppBar;
 
@@ -28,6 +48,65 @@ public class digitalizar_pedido extends AppCompatActivity {
         setSupportActionBar(bottomAppBar);
         configurarBottomAppBar(bottomAppBar);
     }
+    public void llenarTabla(View view){
+        tbdigitalizar = findViewById(R.id.tbdigitalizar);
+        tbdigitalizar.removeAllViews();
+        RequestQueue queue = Volley.newRequestQueue(this);
+
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null,
+                new Response.Listener<JSONObject>(){
+                    JSONArray array = new JSONArray();
+                    public void onResponse(JSONObject response){
+                        try {
+                            array = response.getJSONArray("data");
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                        for (int i = 0; i < array.length(); i++) {
+                            try {
+                                JSONObject object = array.getJSONObject(i);
+
+                                TableRow registro = (TableRow) LayoutInflater.from(digitalizar_pedido.this).inflate(R.layout.table_row_digitalizar, null, false);
+                                TextView txtClienteDigitalizar = registro.findViewById(R.id.txtClienteDigitalizar);
+                                TextView txtMesProcesodigitalizar = registro.findViewById(R.id.txtMesProcesodigitalizar);
+                                TextView txtEncargadoDigitalizar = registro.findViewById(R.id.txtEncargadoDigitalizar);
+                                TextView txtEstadoDigitalizar = registro.findViewById(R.id.txtEstadoDigitalizar);
+                                ImageButton btnDigitalizar = registro.findViewById(R.id.btnDigitalizar);
+                                ImageButton btnFinalizar = registro.findViewById(R.id.btnFinalizar);
+
+                                txtClienteDigitalizar.setText(object.getString("nombreCliente"));
+                                txtMesProcesodigitalizar.setText(object.getString("mesprocesamiento"));
+                                txtEncargadoDigitalizar.setText(object.getString("idTextoPlano"));
+                                txtEstadoDigitalizar.setText(object.getString("estado"));
+                                btnDigitalizar.setId(Integer.parseInt(object.getString("idPedido")));
+                                btnFinalizar.setId(Integer.parseInt(object.getString("idPedido")));
+                                tbdigitalizar.addView(registro);
+
+
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+        queue.add(jsonObjectRequest);
+    }
+    public void clickDigitalizar (View view){
+        String viewidst = String.valueOf(view.getId());
+        Toast.makeText(this,String.valueOf(view.getId()), Toast.LENGTH_SHORT).show();
+
+    }
+    public void clickFinalizar (View view){
+        String viewidst = String.valueOf(view.getId());
+        Toast.makeText(this,String.valueOf(view.getId()), Toast.LENGTH_SHORT).show();
+
+    }
+
     public void configurarBottomAppBar(BottomAppBar bottomAppBar){
         bottomAppBar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
