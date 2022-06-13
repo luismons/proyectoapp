@@ -6,48 +6,48 @@
     android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/txtClienteDigitalizar"
+        android:id="@+id/txtClienteExportar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="TextView" />
 
     <TextView
-        android:id="@+id/txtMesProcesodigitalizar"
+        android:id="@+id/txtMesProcesoExportar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="TextView" />
 
     <TextView
-        android:id="@+id/txtEncargadoDigitalizar"
+        android:id="@+id/txtIndicadorCaducidadExportar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="TextView" />
 
     <TextView
-        android:id="@+id/txtEstadoDigitalizar"
+        android:id="@+id/txtEstadoExportar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:text="TextView" />
 
     <ImageButton
-        android:id="@+id/btnDigitalizar"
+        android:id="@+id/btnExportarExportar"
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_weight="0.5"
-        android:onClick="clickDetalleExportar"
+        android:onClick="clickExportarExportar"
         app:srcCompat="?android:attr/actionModeWebSearchDrawable"
         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
     <ImageButton
-        android:id="@+id/btnFinalizar"
+        android:id="@+id/btnDetalleExportar"
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_weight="0.5"
-        android:onClick="clickExportar"
+        android:onClick="clickExportarDetalle"
         app:srcCompat="@drawable/ic_baseline_download_24_19"
         tools:ignore="SpeakableTextPresentCheck" />
 
