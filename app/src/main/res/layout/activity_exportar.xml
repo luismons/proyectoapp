@@ -32,7 +32,7 @@
                 app:autoSizeTextType="uniform" />
 
             <ScrollView
-                android:id="@+id/filtros"
+                android:id="@+id/scrollTbExportar"
                 android:layout_width="match_parent"
                 android:layout_height="160dp"
                 android:contentDescription="@string/filtros_titulo">
