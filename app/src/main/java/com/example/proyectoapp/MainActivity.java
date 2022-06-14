@@ -1,11 +1,7 @@
 package com.example.proyectoapp;
 
-import static java.lang.Boolean.TRUE;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,7 +9,6 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -22,8 +17,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.google.android.material.bottomappbar.BottomAppBar;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.Hashtable;
 import java.util.Map;
@@ -46,7 +39,7 @@ public class MainActivity extends AppCompatActivity{
         loUsuario=findViewById(R.id.edtUsuario);
         loPassword=findViewById(R.id.edtPassword);
         btnRegistrar=findViewById(R.id.btnRegistrar);
-        btnLogin=findViewById(R.id.btnLogin);
+        btnLogin=findViewById(R.id.btn_Login);
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,11 +48,19 @@ public class MainActivity extends AppCompatActivity{
             }
         });
 
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent =new Intent(MainActivity.this,cuenta.class);
+                startActivity(intent);
+            }
+        });
         btnRegistrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent =new Intent(MainActivity.this,registro.class);
+                Intent intent=new Intent(MainActivity.this,registro.class);
                 startActivity(intent);
+
             }
         });
 

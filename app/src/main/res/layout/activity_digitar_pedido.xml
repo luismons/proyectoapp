@@ -4,65 +4,96 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
+    tools:context=".registro_conexiones">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout3"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_anchor="@+id/constraintLayout3"
-        app:layout_anchorGravity="center">
+        android:layout_margin="@dimen/fab_margin">
 
-        <TextView
-            android:id="@+id/tituloDigitalizar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:text="@string/digitar_pedido_titulo"
-            android:textSize="24sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <TableLayout
-            android:id="@+id/tbDigitarPedido"
-            android:layout_width="356dp"
-            android:layout_height="441dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tituloDigitalizar">
-
-            <TableRow
+            <TextView
+                android:id="@+id/tituloDigitalizarPEdido"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="44dp"
+                android:gravity="center"
+                android:text="@string/digitar_pedidos_titulo"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                app:autoSizeTextType="uniform" />
 
-            <TableRow
+            <ScrollView
+                android:id="@+id/scrollTbConexiones"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent">
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-        </TableLayout>
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/purple_200">
+
+                        <TextView
+                            android:id="@+id/titNombreConexiones"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Contrato" />
+
+                        <TextView
+                            android:id="@+id/titHoraConexionConexiones"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Mes proceso" />
+
+                        <TextView
+                            android:id="@+id/titEstadoConexiones"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Encargado" />
+
+                        <TextView
+                            android:id="@+id/titAccionesConexiones"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Estado" />
+
+
+                    </TableRow>
+
+                    <TableLayout
+                        android:id="@+id/tbConexiones"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        >
+
+                    </TableLayout>
+                </LinearLayout>
+            </ScrollView>
+        </LinearLayout>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
-
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bottomAppBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:background="@color/white"
+        app:fabAnimationMode="slide"
         app:fabCradleMargin="10dp"
         app:fabCradleRoundedCornerRadius="50dp"
-        app:menu="@menu/bottom_menu"
-        tools:ignore="BottomAppBar,MissingConstraints"
-        tools:layout_editor_absoluteX="-64dp"
-        tools:layout_editor_absoluteY="659dp" />
-
-
+        app:hideOnScroll="true"
+        app:menu="@menu/bottom_menu" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

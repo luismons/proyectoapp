@@ -49,7 +49,7 @@ public class digitalizar_pedido extends AppCompatActivity {
         configurarBottomAppBar(bottomAppBar);
     }
     public void llenarTabla(View view){
-        tbdigitalizar = findViewById(R.id.tbdigitalizar);
+        tbdigitalizar = findViewById(R.id.pedidosDigitalizar);
         tbdigitalizar.removeAllViews();
         RequestQueue queue = Volley.newRequestQueue(this);
 
