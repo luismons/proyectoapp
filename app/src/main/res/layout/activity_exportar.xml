@@ -50,7 +50,7 @@
 
                         <TextView
                             android:id="@+id/mesExportar"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="48dp"
                             android:gravity="center_vertical|end"
                             android:text="@string/mes"
@@ -62,7 +62,7 @@
 
                         <TextView
                             android:id="@+id/numContratoExportar"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="48dp"
                             android:gravity="center_vertical|end"
                             android:text="@string/numero_contrato_texto"
