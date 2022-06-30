@@ -39,9 +39,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class exportar extends AppCompatActivity {
-
-    String url = "http://192.168.56.1/ProyectoTitulo/php/registrosPedidosExportar.php";
-    String urlMeses = "http://192.168.56.1/ProyectoTitulo/php/registrosPedidosObtenerMeses.php";
+    String obtenerMesesPHP="registrosPedidosObtenerMeses.php";
+    String pedidosExportarPHP="registrosPedidosExportar.php";
+    String urlPedidosExportar = null;
+    String urlPedidosMeses = null;
     private BottomAppBar bottomAppBar;
     private TableLayout tbExportar;
     private Spinner spinnerMes;
@@ -56,6 +57,13 @@ public class exportar extends AppCompatActivity {
         bottomAppBar = findViewById(R.id.bottomAppBar);
         setSupportActionBar(bottomAppBar);
         configurarBottomAppBar(bottomAppBar);
+        //
+        // Configuración conexión
+        //
+        String ip = getString(R.string.ipServidor);
+        String carpetaPhp = getString(R.string.carpetaPhp);
+        urlPedidosExportar = "http://"+ ip +"/"+ carpetaPhp +"/"+pedidosExportarPHP;
+        urlPedidosMeses = "http://" + ip +"/"+carpetaPhp+"/"+obtenerMesesPHP;
 
         //
         // Configuración Spinner
@@ -68,7 +76,7 @@ public class exportar extends AppCompatActivity {
         spinnerMes.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, meses));
         //json Spinner
         RequestQueue queue2 = Volley.newRequestQueue(this);
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, urlMeses, null,
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, urlPedidosMeses, null,
                 new Response.Listener<JSONObject>(){
                     JSONArray array = new JSONArray();
                     public void onResponse(JSONObject response){
@@ -105,7 +113,7 @@ public class exportar extends AppCompatActivity {
         tbExportar.removeAllViews();
         RequestQueue queue = Volley.newRequestQueue(this);
 
-        StringRequest postRequest = new StringRequest(Request.Method.POST, url,
+        StringRequest postRequest = new StringRequest(Request.Method.POST, urlPedidosExportar,
                 new Response.Listener<String>(){
                     JSONArray array = new JSONArray();
 

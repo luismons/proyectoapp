@@ -40,8 +40,12 @@
     <string name="indicador_caducidad_titulo">Indicador Caducidad</string>
     <string name="estado_titulo">Estado</string>
     <string name="hint_cliente">111111111</string>
-    <string name="ipServidor">192.168.56.1</string>
     <string name="no_hay_registros">No hay registros</string>
+    <string name="registro_nuevo_ususario">Registro Nuevo Usuario</string>
+    <string name="digitalizar_pedido">Digitalizar Pedido</string>
+    <string name="perfilar_usuarios_titulo">Perfilar usuarios</string>
+    <string name="digitar_pedidos_titulo">Digitar pedidos</string>
+
 
 
 </resources>
